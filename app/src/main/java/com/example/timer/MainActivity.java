@@ -54,8 +54,19 @@ public class MainActivity extends AppCompatActivity {
         timeView.setText(timeString);
     }
 
-
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        timer.cancel();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(seconds!=0){
+            timer.start();
+        }
+    }
+}
 
 
